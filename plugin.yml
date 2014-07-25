@@ -1,0 +1,21 @@
+name: Simple Warp
+author: happyzombie707
+description: This is a plugin that allows you to manage warp points!
+main: me.happyzombie.WarpMain
+version: 1.0
+commands:
+   warp:
+      description: The base for Simple warps
+      usage: /<command>
+   warp set:
+      description: This sets a warp.
+      usage: /warp <command> [name]
+   warp delete:
+      description: This deletes a warp.
+      usage: /warp <command> [name]
+   warp to:
+      description: This warps someone to a warp. Don't inclde a player to warp yourself.
+      usage: /warp <command> [name] [player]
+   warp list:
+      description: Lists all the warps in the current world.
+      usage: /warp <command>
