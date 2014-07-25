@@ -2,6 +2,8 @@ package me.happyzombie;
 
 import java.io.File;
 
+import me.happyzombie.go_to.WarpGoto;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
