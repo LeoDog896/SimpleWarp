@@ -18,3 +18,9 @@ Setting a warp with random co-ordinates (because why not?)
 A marker command.
 Some permissions.
 Manually adding a warp.
+
+
+Concepts: 
+Saving all warps in one file. 
+Loading all warps into a list or an array for faster access.
+
