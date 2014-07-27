@@ -25,17 +25,21 @@ public class CreateWarpTest {
 					e.printStackTrace();
 				}
 			}
-
+				
 					WarpData = YamlConfiguration.loadConfiguration(WarpDataFile);
-					WarpData.set(args[1] +".world", player.getLocation().getWorld().getName());
-					WarpData.set(args[1] +".X", player.getLocation().getBlockX());
-					WarpData.set(args[1]+".Y", player.getLocation().getBlockY());
-					WarpData.set(args[1]+".Z", player.getLocation().getBlockZ());
-					DataManager.saveConfig(WarpData, WarpDataFile);
-					player.sendMessage(ChatColor.GREEN + "Warp "+args[1] + " was created succesfuly!");
+					if (!WarpData.contains(args[1])){
+						WarpData.set(args[1] +".world", player.getLocation().getWorld().getName());
+						WarpData.set(args[1] +".X", player.getLocation().getBlockX());
+						WarpData.set(args[1]+".Y", player.getLocation().getBlockY());
+						WarpData.set(args[1]+".Z", player.getLocation().getBlockZ());
+						DataManager.saveConfig(WarpData, WarpDataFile);
+						player.sendMessage(ChatColor.GREEN + "Warp "+args[1] + " was created succesfuly!");
+					}else{
+						player.sendMessage(ChatColor.RED + "Warp " + args[1] + " already exists.");
+					}
 
-		}else{
-			player.sendMessage(ChatColor.RED + "Invalid arguements.");
+			}else{
+				player.sendMessage(ChatColor.RED + "Invalid arguements.");
+			}
 		}
-	}
 }

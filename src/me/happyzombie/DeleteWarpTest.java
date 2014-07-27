@@ -23,14 +23,10 @@ public class DeleteWarpTest {
 					
 					
 					WarpData.set(args[1],  null);
-					WarpData.set(args[1] +".world", null);
-					WarpData.set(args[1] +".X", null);
-					WarpData.set(args[1]+".Y", null);
-					WarpData.set(args[1]+".Z", null);
 					DataManager.saveConfig(WarpData, WarpDataFile);
 					player.sendMessage(ChatColor.GREEN + "Warp "+args[1] + " was deleted succesfuly!");
 			}else{
-				player.sendMessage(ChatColor.RED + "The specified warp already exists.");
+				player.sendMessage(ChatColor.RED + "The specified warp doesn't exist.");
 			}
 
 		}else{
