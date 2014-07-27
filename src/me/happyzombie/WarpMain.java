@@ -105,6 +105,9 @@ public class WarpMain extends JavaPlugin {
 			}else if (args[0].equalsIgnoreCase("testdelete")){
 				DeleteWarpTest.delete(player, args);
 				return true;
+			}else if (args[0].equalsIgnoreCase("testgoto")){
+				GotoWarpTest.gotoWarp(player, args);
+				return true;
 			}else if (args[0].equalsIgnoreCase("compass")){
 					len = args.length;
 					if (len == 1){
