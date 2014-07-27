@@ -99,6 +99,12 @@ public class WarpMain extends JavaPlugin {
 				}else{
 					sender.sendMessage(ChatColor.RED + "You do not have permission to do that.");
 				}
+			}else if (args[0].equalsIgnoreCase("testcreate")){
+				CreateWarpTest.create(player, args);
+				return true;
+			}else if (args[0].equalsIgnoreCase("testdelete")){
+				DeleteWarpTest.delete(player, args);
+				return true;
 			}else if (args[0].equalsIgnoreCase("compass")){
 					len = args.length;
 					if (len == 1){
