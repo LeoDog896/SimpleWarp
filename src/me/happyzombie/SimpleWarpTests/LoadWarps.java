@@ -15,6 +15,7 @@ public class LoadWarps {
 	
 	static List<Warp> warps = new ArrayList<Warp>();
 	
+	@SuppressWarnings("unused")
 	public static void load(Player player, String args[]){
 		Warp holder = new Warp();
 		FileConfiguration WarpData = null;
