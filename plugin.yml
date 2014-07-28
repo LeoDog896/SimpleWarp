@@ -4,6 +4,12 @@ description: This is a plugin that allows you to manage warp points!
 main: me.happyzombie.WarpMain
 version: 1.0
 commands:
+   test:
+      description: A test command
+      usage: /<command>
+   spawn:
+      description: A test command
+      usage: /<command>
    warp:
       description: The base for Simple warps
       usage: /<command>
@@ -19,3 +25,4 @@ commands:
    warp list:
       description: Lists all the warps in the current world.
       usage: /warp <command>
+  
