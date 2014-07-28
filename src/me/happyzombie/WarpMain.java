@@ -5,6 +5,7 @@ import java.io.File;
 import me.happyzombie.SimpleWarpTests.CreateWarpTest;
 import me.happyzombie.SimpleWarpTests.DeleteWarpTest;
 import me.happyzombie.SimpleWarpTests.GotoWarpTest;
+import me.happyzombie.SimpleWarpTests.LoadWarps;
 import me.happyzombie.SimpleWarpTests.WarpCompassTest;
 import me.happyzombie.go_to.WarpGoto;
 
@@ -80,6 +81,9 @@ public class WarpMain extends JavaPlugin {
 			}else if (args[0].equalsIgnoreCase("to")){
 				WarpGoto.gotoWarp(player, args);
 				return true;
+			}else if (args[0].equalsIgnoreCase("test")){
+				LoadWarps.load(player, args);
+				return true;
 			}else if (args[0].equalsIgnoreCase("delete")){
 				if (sender.hasPermission(warpDelete)){
 					WarpDelete.deleteWarpFile(player, args);
@@ -111,6 +115,9 @@ public class WarpMain extends JavaPlugin {
 				return true;
 			}else if (args[0].equalsIgnoreCase("testgoto")){
 				GotoWarpTest.gotoWarp(player, args);
+				return true;
+			}else if (args[0].equalsIgnoreCase("getwarp")){
+				LoadWarps.getWarpName(player, args);
 				return true;
 			}else if (args[0].equalsIgnoreCase("testcompass")){
 				len = args.length;
