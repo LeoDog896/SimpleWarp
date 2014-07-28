@@ -10,7 +10,6 @@ import me.happyzombie.SimpleWarpTests.GotoWarpTest;
 import me.happyzombie.SimpleWarpTests.LoadWarps;
 import me.happyzombie.SimpleWarpTests.WarpCompassTest;
 import me.happyzombie.go_to.WarpGoto;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -19,7 +18,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
  
 public class CommandHandler implements CommandExecutor {
- 
+	
+	@SuppressWarnings("unused")
 	private final Plugin plugin;
  
 	public CommandHandler(Plugin plugin) {
@@ -32,7 +32,7 @@ public class CommandHandler implements CommandExecutor {
 		player.sendMessage("i's all workin' good");
 		if (sender instanceof Player){
 			
-			if (cmd.getName().equalsIgnoreCase("test")) {
+			if (cmd.getName().equalsIgnoreCase("warp")) {
 				int len = args.length;
 				switch (args[0].toLowerCase()){
 				case "help":
