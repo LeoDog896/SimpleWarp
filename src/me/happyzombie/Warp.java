@@ -4,9 +4,9 @@ public class Warp {
 	
 	private String name;
 	private String world;
-	private int x;
-	private int y;
-	private int z;
+	private double x;
+	private double y;
+	private double z;
 	
 	
 	public String getName() {
@@ -21,22 +21,22 @@ public class Warp {
 	public void setWorld(String world) {
 		this.world = world;
 	}
-	public int getX() {
+	public double getX() {
 		return x;
 	}
-	public void setX(int x) {
+	public void setX(double x) {
 		this.x = x;
 	}
-	public int getY() {
+	public double getY() {
 		return y;
 	}
-	public void setY(int y) {
+	public void setY(double y) {
 		this.y = y;
 	}
-	public int getZ() {
+	public double getZ() {
 		return z;
 	}
-	public void setZ(int z) {
+	public void setZ(double z) {
 		this.z = z;
 	}
 	
