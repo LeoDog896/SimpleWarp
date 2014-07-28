@@ -2,6 +2,10 @@ package me.happyzombie;
 
 import java.io.File;
 
+import me.happyzombie.SimpleWarpTests.CreateWarpTest;
+import me.happyzombie.SimpleWarpTests.DeleteWarpTest;
+import me.happyzombie.SimpleWarpTests.GotoWarpTest;
+import me.happyzombie.SimpleWarpTests.WarpCompassTest;
 import me.happyzombie.go_to.WarpGoto;
 
 import org.bukkit.ChatColor;
@@ -108,7 +112,15 @@ public class WarpMain extends JavaPlugin {
 			}else if (args[0].equalsIgnoreCase("testgoto")){
 				GotoWarpTest.gotoWarp(player, args);
 				return true;
-			}else if (args[0].equalsIgnoreCase("compass")){
+			}else if (args[0].equalsIgnoreCase("testcompass")){
+				len = args.length;
+				if (len == 1){
+					WarpCompassTest.compassDefault(player, args);
+					return true;
+				}
+				WarpCompassTest.compassSet(player, args);
+				return true;
+		}else if (args[0].equalsIgnoreCase("compass")){
 					len = args.length;
 					if (len == 1){
 						WarpCompass.compassDefault(player, args);
