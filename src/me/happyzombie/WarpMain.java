@@ -2,23 +2,9 @@ package me.happyzombie;
 
 import java.io.File;
 
-import me.happyzombie.SimpleWarpTests.CreateWarpTest;
-import me.happyzombie.SimpleWarpTests.DeleteWarpTest;
-import me.happyzombie.SimpleWarpTests.GotoWarpTest;
-import me.happyzombie.SimpleWarpTests.LoadWarps;
-import me.happyzombie.SimpleWarpTests.WarpCompassTest;
-import me.happyzombie.go_to.WarpGoto;
-
-import org.bukkit.ChatColor;
-import org.bukkit.command.Command;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.bukkit.plugin.PluginManager;
-
 import Commands.CommandHandler;
-
 
 public class WarpMain extends JavaPlugin {
 	
@@ -35,22 +21,13 @@ public class WarpMain extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		getLogger().info("WarpMain 1.0 enabled!");
-		this.getCommand("test").setExecutor(new CommandHandler(this));
+		this.getCommand("warp").setExecutor(new CommandHandler(this));
 		File WarpDir = new File ("plugins"+File.separator+"SimpleWarp"+File.separator+"Warps"+File.separator+getServer().getWorlds().get(0).getName()+File.separator);
 		if(!WarpDir.exists()){
 			WarpDir.mkdirs();
 			getLogger().info("Warp folder for "+ getServer().getWorlds().get(0).getName() +" created!");
 		}
-		PluginManager pm = getServer().getPluginManager();
-		pm.getPermission("warpSet");
-		pm.getPermission("warpDelete");
-		pm.getPermission("warpGoto");
-		pm.getPermission("warpGotoOther");
-		pm.getPermission("warpCompass");
-		pm.getPermission("warpBeacon");
-		pm.getPermission("warpList");
-		pm.getPermission("warpManual");
-		pm.getPermission("warpRandom");
+
 	}
 	
 	@Override
