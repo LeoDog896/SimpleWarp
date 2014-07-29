@@ -15,7 +15,6 @@ public class LoadWarps {
 	
 	static List<Warp> warps = new ArrayList<Warp>();
 	
-	@SuppressWarnings("unused")
 	public static void load(Player player, String args[]){
 		Warp holder = new Warp();
 		FileConfiguration WarpData = null;
@@ -32,8 +31,7 @@ public class LoadWarps {
 			holder.setX(x);
 			holder.setY(y);
 			holder.setZ(z);
-		boolean testCond = warps.add(holder);
-		if (testCond = true){
+		if (warps.add(holder)){
 			player.sendMessage("Warp loaded");
 		}else{
 			player.sendMessage("Loading failed");
