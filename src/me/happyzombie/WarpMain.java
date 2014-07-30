@@ -3,6 +3,7 @@ package me.happyzombie;
 import java.io.File;
 
 import me.happyzombie.Commands.CommandHandler;
+import me.happyzombie.SimpleWarpTests.LoadWarps;
 
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -23,6 +24,7 @@ public class WarpMain extends JavaPlugin {
 	public void onEnable() {
 		getLogger().info("WarpMain 1.0 enabled!");
 		this.getCommand("warp").setExecutor(new CommandHandler(this));
+		LoadWarps.loadAllWarps();
 		File WarpDir = new File ("plugins"+File.separator+"SimpleWarp"+File.separator+"Warps"+File.separator+getServer().getWorlds().get(0).getName()+File.separator);
 		if(!WarpDir.exists()){
 			WarpDir.mkdirs();
