@@ -2,9 +2,10 @@ package me.happyzombie;
 
 import java.io.File;
 
+import me.happyzombie.Commands.CommandHandler;
+
 import org.bukkit.permissions.Permission;
 import org.bukkit.plugin.java.JavaPlugin;
-import Commands.CommandHandler;
 
 public class WarpMain extends JavaPlugin {
 	
