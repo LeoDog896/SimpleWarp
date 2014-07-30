@@ -22,10 +22,10 @@ public class DeleteWarpTest {
 			
 			
 					WarpData = YamlConfiguration.loadConfiguration(WarpDataFile);
-			if (WarpData.contains(args[1])){	
+			if (WarpData.contains("main."+args[1])){	
 					
 					
-					WarpData.set(args[1],  null);
+					WarpData.set("main."+args[1],  null);
 					DataManager.saveConfig(WarpData, WarpDataFile);
 					player.sendMessage(ChatColor.GREEN + "Warp "+args[1] + " was deleted succesfuly!");
 			}else{

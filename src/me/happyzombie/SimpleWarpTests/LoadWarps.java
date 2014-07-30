@@ -20,17 +20,18 @@ public class LoadWarps {
 		FileConfiguration WarpData = null;
 		File WarpDataFile = new File("plugins"+File.separator+"SimpleWarp"+File.separator+"Warps"+File.separator+"warps.yml");
 		WarpData = YamlConfiguration.loadConfiguration(WarpDataFile);
-		if (WarpData.contains(args[1])){
-			String name = (WarpData.getString(args[1]));
+		if (WarpData.contains("main."+args[1])){
+			String name = (WarpData.getString("main."+args[1]));
 			String world = (WarpData.getString(args[1] + ".world"));
-			double x = (WarpData.getInt(args[1] + ".X"));
-			double y = (WarpData.getInt(args[1] + ".Y"));
-			double z = (WarpData.getInt(args[1] + ".Z"));
+			double x = (WarpData.getInt("main."+args[1] + ".X"));
+			double y = (WarpData.getInt("main."+args[1] + ".Y"));
+			double z = (WarpData.getInt("main."+args[1] + ".Z"));
 			holder.setName(name);
 			holder.setWorld(world);
 			holder.setX(x);
 			holder.setY(y);
 			holder.setZ(z);
+			warps.add(holder);
 		if (warps.add(holder)){
 			player.sendMessage("Warp loaded");
 		}else{
@@ -45,7 +46,13 @@ public class LoadWarps {
 		int index = 1;
 		Warp holder = new Warp();
 		holder = warps.get(index);
-		player.sendMessage(holder.getName());
+		String WarpName = holder.getName();
+		player.sendMessage(WarpName);
+		return;
+	}
+	public static void clearWarpList(Player player){
+		warps.clear();
+		player.sendMessage("Warp list cleared");
 		return;
 	}
 }

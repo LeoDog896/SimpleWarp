@@ -18,11 +18,11 @@ FileConfiguration WarpData = null;
 		File WarpDataFile = new File("plugins"+File.separator+"SimpleWarp"+File.separator+"Warps"+File.separator+"warps.yml");
 			if (player.hasPermission("warpGoto")){
 				WarpData = YamlConfiguration.loadConfiguration(WarpDataFile);
-				if (WarpData.contains(args[1])){
-					String name = (WarpData.getString(args[1] + ".world"));
-					double x = (WarpData.getInt(args[1] + ".X")) + 0.5;
-					double y = (WarpData.getInt(args[1] + ".Y")) + 0.5;
-					double z = (WarpData.getInt(args[1] + ".Z")) + 0.5;
+				if (WarpData.contains("main."+args[1])){
+					String name = (WarpData.getString("main."+args[1] + ".world"));
+					double x = (WarpData.getInt("main."+args[1] + ".X")) + 0.5;
+					double y = (WarpData.getInt("main."+args[1] + ".Y")) + 0.5;
+					double z = (WarpData.getInt("main."+args[1] + ".Z")) + 0.5;
 				
 				Location warp = new Location(Bukkit.getServer().getWorld(name), x, y, z);
 				player.teleport(warp);
