@@ -3,6 +3,7 @@ package me.happyzombie.SimpleWarpTests;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import me.happyzombie.Warp;
 
@@ -55,4 +56,27 @@ public class LoadWarps {
 		player.sendMessage("Warp list cleared");
 		return;
 	}
+	
+	public static void loadAllWarps(){
+		FileConfiguration WarpData = null;
+		File WarpDataFile = new File("plugins"+File.separator+"SimpleWarp"+File.separator+"Warps"+File.separator+"warps.yml");
+		WarpData = YamlConfiguration.loadConfiguration(WarpDataFile);
+	
+		Warp holder = new Warp();
+		List<Warp> allWarps = new ArrayList<Warp>();
+		Set<String> WarpNames;
+		WarpNames = WarpData.getConfigurationSection("main").getKeys(false);
+		int len = WarpNames.size();
+		String[] Warps = WarpNames.toArray(new String[0]);
+		for (int i = 0; i < len; i++){
+			holder.setName(Warps[i]);
+			holder.setWorld(WarpData.getString("main."+Warps[i]+".world"));
+			holder.setX(WarpData.getInt("main."+Warps[i]+".X"));
+			holder.setY(WarpData.getInt("main."+Warps[i]+".Y"));
+			holder.setZ(WarpData.getInt("main."+Warps[i]+".Z"));
+			allWarps.add(holder); 
+			System.out.print("[Simple Warp]: " + Warps[i] + " loaded.");
+		}
+	}
 }
+
