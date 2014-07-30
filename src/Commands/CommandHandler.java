@@ -7,9 +7,11 @@ import me.happyzombie.WarpList;
 import me.happyzombie.SimpleWarpTests.CreateWarpTest;
 import me.happyzombie.SimpleWarpTests.DeleteWarpTest;
 import me.happyzombie.SimpleWarpTests.GotoWarpTest;
+import me.happyzombie.SimpleWarpTests.ListWarpTest;
 import me.happyzombie.SimpleWarpTests.LoadWarps;
 import me.happyzombie.SimpleWarpTests.WarpCompassTest;
 import me.happyzombie.go_to.WarpGoto;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -72,6 +74,12 @@ public class CommandHandler implements CommandExecutor {
 					return true;
 				case "getwarp":
 					LoadWarps.getWarpName(player, args);
+					return true;
+				case "clearwarp":
+					LoadWarps.clearWarpList(player);
+					return true;
+				case "testlist":
+					ListWarpTest.listWarps(player, args);
 					return true;
 				case "testcompass":
 					len = args.length;
