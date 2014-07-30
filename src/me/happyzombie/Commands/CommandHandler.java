@@ -1,17 +1,11 @@
-package Commands;
+package me.happyzombie.Commands;
  
-import me.happyzombie.WarpCompass;
-import me.happyzombie.WarpCreate;
-import me.happyzombie.WarpDelete;
-import me.happyzombie.WarpList;
 import me.happyzombie.SimpleWarpTests.CreateWarpTest;
 import me.happyzombie.SimpleWarpTests.DeleteWarpTest;
 import me.happyzombie.SimpleWarpTests.GotoWarpTest;
 import me.happyzombie.SimpleWarpTests.ListWarpTest;
 import me.happyzombie.SimpleWarpTests.LoadWarps;
 import me.happyzombie.SimpleWarpTests.WarpCompassTest;
-import me.happyzombie.go_to.WarpGoto;
-
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -31,7 +25,6 @@ public class CommandHandler implements CommandExecutor {
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		Player player = (Player) sender;
-		player.sendMessage("i's all workin' good");
 		if (sender instanceof Player){
 			
 			if (cmd.getName().equalsIgnoreCase("warp")) {
@@ -45,57 +38,34 @@ public class CommandHandler implements CommandExecutor {
 					player.sendMessage(ChatColor.GOLD +"/warp to [name] - takes you to the specified warp.");
 					player.sendMessage(ChatColor.GOLD +"/warp list - lists all warps in the current world.");
 					return true;
-				case "set":
-						WarpCreate.createWarpFile(player, args);
-						return true;
-				case "to":
-					WarpGoto.gotoWarp(player, args);
-					return true;
-				case "test":
+				case "load":
 					LoadWarps.load(player, args);
 					return true;
-				case "delete":
-					WarpDelete.deleteWarpFile(player, args);
-					return true;
-				case "list":
-					WarpList.listWarps(player, args);
-					return true;
-				case "beacon":
-					player.sendMessage("coming soon!");
-					return true;
-				case "testcreate":
+				case "set":
 					CreateWarpTest.create(player, args);
 					return true;
-				case "testdelete":
+				case "delete":
 					DeleteWarpTest.delete(player, args);
 					return true;
-				case "testgoto":
+				case "to":
 					GotoWarpTest.gotoWarp(player, args);
 					return true;
-				case "getwarp":
+				case "get":
 					LoadWarps.getWarpName(player, args);
 					return true;
-				case "clearwarp":
+				case "clear":
 					LoadWarps.clearWarpList(player);
 					return true;
-				case "testlist":
+				case "list":
 					ListWarpTest.listWarps(player, args);
 					return true;
-				case "testcompass":
+				case "compass":
 					len = args.length;
 					if (len == 1){
 						WarpCompassTest.compassDefault(player, args);
 						return true;
 					}
 					WarpCompassTest.compassSet(player, args);
-					return true;
-				case "compass":
-					len = args.length;
-					if (len == 1){
-						WarpCompass.compassDefault(player, args);
-						return true;
-					}
-					WarpCompass.compassSet(player, args);
 					return true;
 				default: 
 					player.sendMessage(ChatColor.RED + args[0] + " is not a command.");
