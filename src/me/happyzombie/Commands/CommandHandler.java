@@ -1,11 +1,17 @@
 package me.happyzombie.Commands;
  
-import me.happyzombie.SimpleWarpTests.CreateWarpTest;
-import me.happyzombie.SimpleWarpTests.DeleteWarpTest;
-import me.happyzombie.SimpleWarpTests.GotoWarpTest;
-import me.happyzombie.SimpleWarpTests.ListWarpTest;
-import me.happyzombie.SimpleWarpTests.LoadWarps;
-import me.happyzombie.SimpleWarpTests.WarpCompassTest;
+import java.util.ArrayList;
+import java.util.List;
+
+import me.happyzombie.Objects.Warp;
+import me.happyzombie.SimpleWarpFunctions.CreateWarpTest;
+import me.happyzombie.SimpleWarpFunctions.DeleteWarpTest;
+import me.happyzombie.SimpleWarpFunctions.GotoList;
+import me.happyzombie.SimpleWarpFunctions.GotoWarpTest;
+import me.happyzombie.SimpleWarpFunctions.HelpWarp;
+import me.happyzombie.SimpleWarpFunctions.ListWarpTest;
+import me.happyzombie.SimpleWarpFunctions.WarpCompassTest;
+
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -15,11 +21,12 @@ import org.bukkit.plugin.Plugin;
  
 public class CommandHandler implements CommandExecutor {
 	
-	@SuppressWarnings("unused")
 	private final Plugin plugin;
+	List<Warp> warpList = new ArrayList<Warp>();
  
-	public CommandHandler(Plugin plugin) {
+	public CommandHandler(Plugin plugin, List<Warp> warps) {
 		this.plugin = plugin;
+		warpList = warps;
 	}
  
 	@Override
@@ -31,15 +38,7 @@ public class CommandHandler implements CommandExecutor {
 				int len = args.length;
 				switch (args[0].toLowerCase()){
 				case "help":
-					player.sendMessage(ChatColor.GOLD +"This is the Simple Warp help!");
-					player.sendMessage(ChatColor.GOLD +"---------------------------");
-					player.sendMessage(ChatColor.GOLD +"/warp set [name] - creates a warp with the specified name.");
-					player.sendMessage(ChatColor.GOLD +"/warp delete [name] - deletes the warp with that name.");
-					player.sendMessage(ChatColor.GOLD +"/warp to [name] - takes you to the specified warp.");
-					player.sendMessage(ChatColor.GOLD +"/warp list - lists all warps in the current world.");
-					return true;
-				case "load":
-					LoadWarps.load(player, args);
+					HelpWarp.help(player, args);
 					return true;
 				case "set":
 					CreateWarpTest.create(player, args);
@@ -50,14 +49,11 @@ public class CommandHandler implements CommandExecutor {
 				case "to":
 					GotoWarpTest.gotoWarp(player, args);
 					return true;
-				case "get":
-					LoadWarps.getWarpName(player, args);
-					return true;
-				case "clear":
-					LoadWarps.clearWarpList(player);
-					return true;
 				case "list":
 					ListWarpTest.listWarps(player, args);
+					return true;
+				case "gototest":
+					GotoList.gotoList(player, args, warpList);
 					return true;
 				case "compass":
 					len = args.length;
