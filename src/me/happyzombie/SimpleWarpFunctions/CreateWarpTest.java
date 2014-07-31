@@ -1,4 +1,4 @@
-package me.happyzombie.SimpleWarpTests;
+package me.happyzombie.SimpleWarpFunctions;
 
 import java.io.File;
 import java.io.IOException;
