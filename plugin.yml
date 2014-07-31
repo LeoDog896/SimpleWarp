@@ -1,18 +1,15 @@
 name: Simple Warp
 author: happyzombie707
 description: This is a plugin that allows you to manage warp points!
-main: me.happyzombie.WarpMain
+main: me.happyzombie.SimpleWarpMain
 version: 1.0
 commands:
-   test:
-      description: A test command
-      usage: /<command>
-   spawn:
-      description: A test command
-      usage: /<command>
    warp:
       description: The base for Simple warps
       usage: /<command>
+   warp help:
+      description: Help with the SimpleWarp plugin.
+      usage: /warp <command>
    warp set:
       description: This sets a warp.
       usage: /warp <command> [name]
@@ -25,4 +22,8 @@ commands:
    warp list:
       description: Lists all the warps in the current world.
       usage: /warp <command>
+   warp compass:
+      description: Sets your compass to point to a warp.
+      usage: /warp <command>
+
   
