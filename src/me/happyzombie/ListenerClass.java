@@ -4,7 +4,7 @@ import org.bukkit.event.Listener;
 
 public class ListenerClass implements Listener {
 	
-	public ListenerClass(WarpMain plugin) {
+	public ListenerClass(SimpleWarpMain plugin) {
 		plugin.getServer().getPluginManager().registerEvents(this, plugin);	
 	}
 }
