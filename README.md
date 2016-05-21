@@ -1,26 +1,36 @@
-SimpleWarp-1.6.4
-================
+# SimpleWarp - 1.8.8
+---
 
-Warp plugin for Minecraft
-
-This is unfinished and seeing as bukkit is kill, possibly won't be finished. Q.Q
-
-Working features:
-Setting a warp.
-Deleting a warp.
-Going to a warp.
-Teleporting other players to a warp.
-Listing all the warps.
-Setting a compass to point at a warp.
-
-Stuff still to be added:
-Setting a warp with random co-ordinates (because why not?)
-A marker command.
-Some permissions.
-Manually adding a warp.
+Spigot plugin for creating and managing warps.
 
 
-Concepts: 
-Saving all warps in one file. 
-Loading all warps into a list or an array for faster access.
+## Commands
 
+/warp set \[warp\] - Create new warp with given name.
+
+/warp delete \[warp\] - Delete warp with given name.
+
+/warp to \[warp\] - Go to specified warp.
+/warp to \[player] \[warp\] - Warp player to specified warp.
+
+/warp list - List warps in all worlds.
+/warp list \[world\] - List warps in specified world.
+
+/warp compass - Reset compass to default.
+/warp compass \[warp\] - Make compass point to warp.
+
+/warp save - Save all warps to config file.
+
+~~/warp reload~~ - Not implemented yet.
+
+~~/warp beacon~~ - Not implemented yet.
+
+
+## Permissions
+
+lollll meme
+
+
+## Config
+
+:^)
