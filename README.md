@@ -33,4 +33,8 @@ lollll meme
 
 ## Config
 
+<<<<<<< HEAD
 :^)
+=======
+:^)
+>>>>>>> origin/master
